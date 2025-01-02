@@ -1,0 +1,58 @@
+
+/* Ensure the body takes full height and centers content */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;    /* Vertically center */
+    height: 100vh;          /* Full viewport height */
+    background-color: #f0f0f0; /* Optional background color */
+}
+
+/* Wrapper div to group buttons */
+div {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    align-items: center;    /* Center buttons horizontally */
+    gap: 20px;              /* Space between rows */
+}
+
+/* Row for the first three buttons */
+#userChoice {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+/* Style for buttons */
+button {
+    background-color: green;
+    font-size: 20px;
+    padding: 14px 40px;
+    border-radius: 12px;
+    color: black;
+    border: 10px black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #e0e0e0;
+}
+
+#buttonSubmit {
+    background-color: #f44336;
+    font-size: 20px;
+    padding: 14px 40px;
+    border-radius: 12px;
+    color: black;
+    border: 10px black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+#buttonSubmit:hover {
+    background-color: #e0e0e0;
+}
