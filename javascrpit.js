@@ -1840,3 +1840,94 @@ function requests() {
     )
 }
 requests()
+
+
+async function loadJson(url) {
+    let result = await fetch(url)
+    if (result.status == 200) {
+        let resultJSON = await result.json()
+        return resultJSON
+    } else {
+        throw new Error(result.status)
+    }
+}
+loadJson("https://javascript.info/no-such-user.json").catch(alert)
+
+
+
+
+
+function createFrame(names) {
+    const width = Math.max(...names.map(name => name.length)) + 4;
+    const border = '*'.repeat(width);
+    const lines = names.map(name => `* ${name.padEnd(width - 4)} *`);
+    let result = [border, ...lines, border].join('\n')
+    return result
+}
+createFrame(['midu', 'madeval', 'educalvolpz'])
+
+
+
+
+
+function organizeInventory(inventory) {
+    let result = {}
+
+    for (let item of inventory) {
+        if (!result[item.category]) {
+            result[item.category] = {}
+        }
+        if (!result[item.category][item.name]) {
+            result[item.category][item.name] = 0
+        }
+
+        result[item.category][item.name] += item.quantity
+    }
+
+    return result
+}
+const inventory = [
+    { name: 'doll', quantity: 5, category: 'toys' },
+    { name: 'car', quantity: 3, category: 'toys' },
+    { name: 'ball', quantity: 2, category: 'sports' },
+    { name: 'car', quantity: 2, category: 'toys' },
+    { name: 'racket', quantity: 4, category: 'sports' }
+]
+organizeInventory(inventory)
+
+
+
+
+async function displayUser() {
+    let response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    let result = await response.json()
+    console.log(result.name)
+}
+displayUser()
+
+
+
+
+
+const shoes = [
+    { type: 'I', size: 38 },
+    { type: 'R', size: 38 },
+    { type: 'R', size: 42 },
+    { type: 'I', size: 41 },
+    { type: 'I', size: 42 }
+]
+function organizeShoes(shoes) {
+    let pairs = []
+    let visited = []
+    shoes.forEach((item1) => {
+        shoes.forEach((item2) => {
+            if (item1 !== item2 && item1.size === item2.size && item1.type !== item2.type && !visited.includes(item1) && !visited.includes(item2)) {
+                pairs.push([item1.size])
+                visited.push(item1, item2)
+            }
+        })
+    })
+    return pairs
+    console.log (pairs)
+}
+organizeShoes(shoes)
