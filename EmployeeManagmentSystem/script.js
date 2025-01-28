@@ -97,14 +97,13 @@ companyFilter.addEventListener('change', () => {
 search.addEventListener('input', () => {
     const nameSearch = search.value
     if (nameSearch) {
-        const filteredNames = searchEmployees.filter((element) => {
+       searchEmployees = searchEmployees.filter((element) => {
             return element.name.toLowerCase().includes(search.value.toLowerCase())
         })
-        employeeList.innerHTML = filteredNames.map((employee) => {
-            return `<div class="employeeCard"> <h2>${employee.name}</h2> <p>Email: ${employee.email}</p> <p>Company: ${employee.company.name}</p> </div>`
-        }).join('')
     }
     else {
-        displayEmployees()
+       searchEmployees = [...employees]
     }
+    displayEmployees()
 })
+
