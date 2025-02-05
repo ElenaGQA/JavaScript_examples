@@ -186,3 +186,6 @@ function hourlyForecast(weatherData) {
     })
 }
 
+document.cookie = "name = Pete"
+alert(document.cookie) // run it with Live Server to see
+

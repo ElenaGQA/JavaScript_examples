@@ -1931,3 +1931,4 @@ function organizeShoes(shoes) {
     console.log (pairs)
 }
 organizeShoes(shoes)
+
