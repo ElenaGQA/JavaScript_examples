@@ -39,7 +39,7 @@ button {
 /* we will create them from js part */
 .task {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /**distributes the child elements with equal space between them, placing the first child at the start and the last child at the end*/
     background: lightgray;
     margin: 5px 0;
     padding: 10px;

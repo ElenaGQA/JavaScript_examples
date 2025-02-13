@@ -31,7 +31,7 @@ function desplayTasks() {
         let span = document.createElement("span")
         span.style.display = "flex"
         span.style.gap = "20px"
-        span.style.marginBottom = "8px"
+        span.style.marginBottom = "8px" // moves element up 
 
         let completeBtn = document.createElement("button")
         completeBtn.setAttribute('class', 'toggle')
