@@ -21,14 +21,17 @@ function desplayTasks() {
         let li = document.createElement("li")
         li.innerHTML = el.name
         li.style.display = "flex"
-        li.style.justifyContent = "space-between"
+        li.style.justifyContent = "space-between" // all elements are spread out with equal space in between
+        li.style.background = "lightgray"
+        li.style.margin = "5px 0"
         li.style.alignItems = "center"
         li.style.padding = "5px"
-        li.style.position = "relative"
-
+        li.style.borderRadius = "5px"
+        
         let span = document.createElement("span")
         span.style.display = "flex"
-        span.style.gap = "10px"
+        span.style.gap = "20px"
+        span.style.marginBottom = "8px"
 
         let completeBtn = document.createElement("button")
         completeBtn.setAttribute('class', 'toggle')
@@ -37,6 +40,7 @@ function desplayTasks() {
 
         completeBtn.addEventListener('click', () => {
             manager.toggleTaskCompletion()
+            // li.style.textDecoration = "line-through"
         })
 
         let removeBtn = document.createElement("button")
@@ -56,4 +60,4 @@ function desplayTasks() {
 
 desplayTasks()
 
-localStorage.clear()
+// localStorage.clear()
