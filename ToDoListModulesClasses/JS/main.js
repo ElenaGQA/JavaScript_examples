@@ -10,54 +10,83 @@ addBtn.addEventListener('click', () => {
     let input = taskInput.value
     if (input !== "") {
         manager.addTask(input)
-        desplayTasks()
+        displayTasks()
     }
-    taskInput.value=""
+    taskInput.value = ""
 })
 
-function desplayTasks() {
+function displayTasks() {
     taskList.innerHTML = ""
     manager.tasks.forEach(el => {
+        console.log(el)
         let li = document.createElement("li")
-        li.innerHTML = el.name
-        li.style.display = "flex"
-        li.style.justifyContent = "space-between" // all elements are spread out with equal space in between
-        li.style.background = "lightgray"
-        li.style.margin = "5px 0"
-        li.style.alignItems = "center"
-        li.style.padding = "5px"
-        li.style.borderRadius = "5px"
-        
+        li.className = "task"
+
         let span = document.createElement("span")
-        span.style.display = "flex"
-        span.style.gap = "20px"
-        span.style.marginBottom = "8px" // moves element up 
+        span.textContent = el.name
 
         let completeBtn = document.createElement("button")
-        completeBtn.setAttribute('class', 'toggle')
         completeBtn.textContent = "Complete"
-        span.appendChild(completeBtn)
-
-        completeBtn.addEventListener('click', () => {
-            manager.toggleTaskCompletion()
-            // li.style.textDecoration = "line-through"
-        })
 
         let removeBtn = document.createElement("button")
-        removeBtn.setAttribute('class', 'delete')
         removeBtn.textContent = "Remove"
-        span.appendChild(removeBtn)
+
+        completeBtn.addEventListener('click', () => {
+            let isCompleted = manager.toggleTaskCompletion(el.id);
+            if (isCompleted) {
+                span.classList.add("complete");
+            } else {
+                span.classList.remove("complete");
+            }
+        })
 
         removeBtn.addEventListener('click', () => {
-            manager.deleteTask()
+            manager.deleteTask(el.id)
+            
         })
 
         li.appendChild(span)
-
+        li.appendChild(completeBtn)
+        li.appendChild(removeBtn)
         taskList.appendChild(li)
+
     });
 }
 
-desplayTasks()
+// function displayTasks() {
+//     taskList.innerHTML = ""
+//     manager.tasks.forEach(el => {
+//         console.log(el.name, el.completed)
 
-// localStorage.clear()
+//         let li = document.createElement("li")
+//         li.className = "task" 
+//         li.innnerHTML = `<span class="${el.completed ? "complete" : ""}"> ${el.name} </span>`
+
+//         let completeBtn = document.createElement("button")
+//         completeBtn.textContent = "Complete"
+
+//         let removeBtn = document.createElement("button")
+//         removeBtn.textContent = "Remove"
+
+//         completeBtn.addEventListener('click', () => {
+//             manager.toggleTaskCompletion(el.id)
+//         })
+
+//         removeBtn.addEventListener('click', () => {
+//             manager.deleteTask()
+//         })
+
+//         li.appendChild(completeBtn)
+//         li.appendChild(removeBtn)
+
+//         taskList.appendChild(li)
+//     });
+// }
+
+displayTasks()
+
+localStorage.clear()
+
+
+
+

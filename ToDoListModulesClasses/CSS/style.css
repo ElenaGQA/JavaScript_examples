@@ -4,48 +4,62 @@
 }
 
 body {
-    display: flex;  /*adjust their size, position, and spacing dynamically based on the available space */
-    justify-content: center; /* moves all flex items in the center horizontally*/
-    align-items: center;  /*vertically centered*/
-    height: 100vh; /*100% of viewport hight - visible area of the browser window */
+    display: flex;
+    /*adjust their size, position, and spacing dynamically based on the available space */
+    justify-content: center;
+    /* moves all flex items in the center horizontally*/
+    align-items: center;
+    /*vertically centered*/
+    height: 100vh;
+    /*100% of viewport hight - visible area of the browser window */
 }
 
 .container {
     width: 400px;
-    padding: 20px; /*20 pixels of space inside the container, between its content and the border*/
+    padding: 20px;
+    /*20 pixels of space inside the container, between its content and the border*/
     border: 2px solid;
     background-color: lightcyan;
     border-radius: 5px;
-    text-align: center;  /*centers any text (or inline elements) inside the container horizontally*/
+    text-align: center;
+    /*centers any text (or inline elements) inside the container horizontally*/
 }
 
 input {
-    width: 80%;  /*sets the width of the input field to 80% of its parent container's width*/
-    padding: 8px;  /*adds 8 pixels of space inside the input field, between the text (or content) and its border*/
+    width: 80%;
+    /*sets the width of the input field to 80% of its parent container's width*/
+    padding: 8px;
+    /*adds 8 pixels of space inside the input field, between the text (or content) and its border*/
     border-radius: 5px;
-    margin-top: 10px; /*adds 10 pixels of space above the input field, separating it from any elements above it*/
+    margin-top: 10px;
+    /*adds 10 pixels of space above the input field, separating it from any elements above it*/
 }
 
 button {
     background: #007bff;
-    color: white; /*letters color*/
+    color: white;
+    /*letters color*/
     border: none;
     font-size: 20px;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 8px;
+    margin-top: 5px;
+    margin-bottom: 7px;
 }
 
 /* we will create them from js part */
 .task {
     display: flex;
-    justify-content: space-between;  /**distributes the child elements with equal space between them, placing the first child at the start and the last child at the end*/
+    justify-content: right;
+    /**distributes the child elements with equal space between them, placing the first child at the start and the last child at the end*/
+    justify-content: space-between;
     background: lightgray;
     margin: 5px 0;
-    padding: 10px;
-    border-radius: 3px;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
 }
 
-.complete {
+span.complete {
     text-decoration: line-through;
 }

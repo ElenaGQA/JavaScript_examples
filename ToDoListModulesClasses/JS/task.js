@@ -5,10 +5,10 @@ export default class Task {
         this.id = Date.now()
     }
     toggleCompleted() {
-        this.completed = !this.completed
-        // if (this.completed == true) completed = false;
+        this.completed = !this.completed 
+        // if (this.completed == true) this.completed = false;
         // else {this.completed = true}
-    }
-
-
+        return this.completed
+    }   
 }
+

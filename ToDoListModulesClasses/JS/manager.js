@@ -18,13 +18,13 @@ export default class Manager {
     }
 
     toggleTaskCompletion(id) {
-        this.tasks.forEach(element => {
-            if (element.id == id) {
-                element.toggleCompleted()
-                return
-            }
-        })
-        this.updateStorage()
+        let task = this.tasks.find(element => element.id === id)
+        if (task) {
+            task.toggleCompleted()
+            this.updateStorage()
+            return task.completed
+        }
+        return null
     }
 
     updateStorage() {
