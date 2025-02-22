@@ -24,7 +24,6 @@ export default class Manager {
             this.updateStorage()
             return task.completed
         }
-        return null
     }
 
     updateStorage() {
