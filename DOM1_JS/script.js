@@ -9,6 +9,8 @@ let link = document.querySelector("#link")
 
 btn.addEventListener('click', () => link.setAttribute("href", "https://www.wunderground.com/weather/ca/kleinburg"))
 
+console.log("test")
+
 
 
 // let container = document.getElementsByClassName("container")
