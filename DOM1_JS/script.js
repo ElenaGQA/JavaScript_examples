@@ -9,7 +9,7 @@ let link = document.querySelector("#link")
 
 btn.addEventListener('click', () => link.setAttribute("href", "https://www.wunderground.com/weather/ca/kleinburg"))
 
-console.log("test")
+console.log("test, commit")
 
 
 
