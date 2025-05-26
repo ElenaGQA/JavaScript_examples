@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: aliceblue;
+    padding: 70px;
+    text-align: center;  
+}
+
+#word {
+    font-size: 2em;
+    letter-spacing: 10px;
+    margin-bottom: 1em;
+}
+
+.keyboardLetter {
+    background-color: lightskyblue;
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.keyboardLetter:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#message {
+    font-size: 1.2em;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+#restartBtn {
+    background-color: rgb(98, 211, 123);
+    margin-top: 2em;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
