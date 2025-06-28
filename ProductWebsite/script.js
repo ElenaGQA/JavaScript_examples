@@ -3,7 +3,8 @@ const cart = document.querySelector(".cart");
 const container = document.querySelector(".container");
 const menuItem = document.querySelector(".menuItem");
 const products = document.querySelector(".products");
-const addBtn = document.querySelector(".addBtn")
+const closeBtn = document.querySelector(".close")
+const cartItems = document.querySelector(".cartItmes")
 
 
 class Product {
@@ -32,7 +33,7 @@ class Product {
         productDiv.appendChild(description);
 
         const price = document.createElement("h4");
-        price.textContent =this.productPrice;
+        price.textContent = this.productPrice;
         productDiv.appendChild(price);
 
         const addBtn = document.createElement("button");
@@ -40,8 +41,13 @@ class Product {
         addBtn.textContent = "Add to cart";
         productDiv.appendChild(addBtn);
 
-       products.appendChild(productDiv);
+        addBtn.addEventListener('click', () => {
 
+            shoppingCart.add(this.productName, this.productPrice)
+
+        })
+
+        products.appendChild(productDiv);
     }
 }
 
@@ -59,6 +65,27 @@ let productList = [
 
 productList.forEach(product => product.creatProductCard())
 
-addBtn.addEventListener('click', ()=>{
+class ShoppingCart {
 
-})
+    constructor() {
+        this.products = [];
+        this.count = 0;
+    }
+
+    add(productName, productPrice) {
+        let specProduct = this.products.find(el => el.productName == productName)
+        if (specProduct) {
+            specProduct.count++
+        }
+        else {
+            this.products.push({ productName, productPrice, count: 1 })
+        }
+    }
+
+    desplay(){
+        
+    }
+
+}
+
+let shoppingCart = new ShoppingCart();
