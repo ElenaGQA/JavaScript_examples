@@ -1,10 +1,12 @@
 const burger = document.querySelector(".burger");
 const cart = document.querySelector(".cart");
 const container = document.querySelector(".container");
+const menu = document.querySelector(".menu");
 const menuItem = document.querySelector(".menuItem");
 const products = document.querySelector(".products");
+const modal = document.querySelector(".modal")
 const closeBtn = document.querySelector(".close")
-const cartItems = document.querySelector(".cartItmes")
+const cartItems = document.querySelector(".cartItems")
 
 
 class Product {
@@ -45,6 +47,7 @@ class Product {
 
             shoppingCart.add(this.productName, this.productPrice)
 
+
         })
 
         products.appendChild(productDiv);
@@ -82,10 +85,51 @@ class ShoppingCart {
         }
     }
 
-    desplay(){
-        
+    display() {
+        cartItems.innerHTML = ""
+        this.products.forEach(el => {
+            let li = document.createElement("li")
+            li.textContent = `${el.productName} - ${el.count} X ${el.productPrice}`
+            cartItems.appendChild(li)
+        })
+
     }
 
 }
 
 let shoppingCart = new ShoppingCart();
+
+cart.addEventListener('click', () => {
+    shoppingCart.display()
+    modal.style.display = "block"
+})
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = "none"
+})
+
+window.addEventListener('click', (e) => {
+    if (e.target == modal) modal.style.display = "none"
+})
+
+burger.addEventListener('click', () => {
+    menu.classList.toggle("open");
+});
+
+
+window.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove("open")
+    }
+})
+
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        menu.classList.remove("open");
+    } else {
+        menu.classList.remove("open");
+    }
+});
+
+
