@@ -1,9 +1,8 @@
-const burger = document.querySelector(".burger");
-const cart = document.querySelector(".cart");
-const container = document.querySelector(".container");
-const menu = document.querySelector(".menu");
-const menuItem = document.querySelector(".menuItem");
-const products = document.querySelector(".products");
+const cart = document.querySelector(".cart")
+const numberOfProducts = document.querySelector(".numberOfProducts")
+const container = document.querySelector(".container")
+const menuItem = document.querySelector(".menuItem")
+const products = document.querySelector(".products")
 const modal = document.querySelector(".modal")
 const closeBtn = document.querySelector(".close")
 const cartItems = document.querySelector(".cartItems")
@@ -44,10 +43,10 @@ class Product {
         productDiv.appendChild(addBtn);
 
         addBtn.addEventListener('click', () => {
-
             shoppingCart.add(this.productName, this.productPrice)
-
-
+            numberOfProducts.textContent++
+            numberOfProducts.style.display = "block"
+            alert (`The ${this.productName} is added to the cart!`)
         })
 
         products.appendChild(productDiv);
@@ -68,7 +67,7 @@ let productList = [
 
 productList.forEach(product => product.creatProductCard())
 
-class ShoppingCart {
+export class ShoppingCart {
 
     constructor() {
         this.products = [];
@@ -112,24 +111,6 @@ window.addEventListener('click', (e) => {
     if (e.target == modal) modal.style.display = "none"
 })
 
-burger.addEventListener('click', () => {
-    menu.classList.toggle("open");
-});
 
-
-window.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !burger.contains(e.target)) {
-        menu.classList.remove("open")
-    }
-})
-
-
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        menu.classList.remove("open");
-    } else {
-        menu.classList.remove("open");
-    }
-});
 
 
