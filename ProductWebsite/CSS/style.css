@@ -37,21 +37,23 @@ header {
 .container {
     display: flex;
     gap: 10px;
+
 }
 
 .menu {
     background-color: burlywood;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 150px;
     align-items: stretch;
     min-height: 100vh;
+    padding: 10px;
 }
 
 .menuItem {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 27px;
     font-weight: bold;
 }
 
@@ -154,11 +156,13 @@ header {
     /* This class shows the menu */
     .menu.open {
         display: flex;
+        min-height: 100px;
     }
 
     .container {
         flex-direction: column;
     }
+
 }
 
 footer {
@@ -166,4 +170,86 @@ footer {
     color: aliceblue;
     padding: 10px;
     text-align: center;
+}
+
+.mainContainer {
+    margin: 0 auto;
+}
+
+.homeContainer {
+    background-image: url("../Image/main_image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-width: 1000px;
+    text-align: center;
+    padding: 20px;
+    color: rgb(31, 22, 1);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#productBtn {
+    background-color: goldenrod;
+    text-decoration: none;
+    color: #fefefe;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+    display: inline-block;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 800px;
+    /* 👈 You control how tall it is */
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    position: absolute;
+
+}
+
+.slide img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+
+.slide:nth-child(2),
+.slide:nth-child(3),
+.slide:nth-child(4),
+.slide:nth-child(5) {
+    display: none;
+}
+
+.sliderButtons button {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: #d1ac06;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+  
+    transform: translate(-50%,-50%);
+}
+
+#left {
+    left: 35px;
+}
+
+#right {
+    right: 0;
 }
